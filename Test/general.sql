@@ -1,0 +1,49 @@
+USE LearningSQL;
+
+-- COUNT USERS --
+SELECT COUNT(Id) AS UsersCount FROM Users;
+
+-- RETURN ALL USERS
+SELECT * FROM USERS;
+
+-- RETURN SPECIFIIC USER
+SELECT * FROM Users 
+WHERE id <> 1;
+
+
+-- USING THE LIKE OPERATOR
+SELECT * FROM Users
+WHERE FirstName LIKE '%adim%';
+
+-- USING THE LIKE AND 'AND' OPERATOR TOGETHER
+SELECT * From Users
+WHERE FirstName LIKE 'K%' 
+AND LastName LIKE 'K%';
+
+-- SELECT DISTINCT
+SELECT DISTINCT FirstName FROM Users;
+
+-- ORDER
+SELECT LastName FROM Users
+ORDER BY FirstName DESC;
+
+-- NOT LIKE
+SELECT *
+FROM Users
+WHERE LastName NOT LIKE '%onam%';
+
+
+--NOT IN
+SELECT * 
+FROM Users
+WHERE FirstName NOT IN ('Tadima', 'Karabo');
+
+-- AGGREGATE
+SELECT MIN(Id) AS Small, LastName
+FROM Users
+GROUP BY LastName
+
+
+SELECT COUNT(DISTINCT LastName)
+FROM Users
+WHERE LastName = 'Monama';
